@@ -1,20 +1,48 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Main.java to edit this template
- */
 package imc;
 
-/**
- *
- * @author MINEDUCYT
- */
+import java.util.InputMismatchException;
+import java.util.Scanner;
+
 public class Calculo {
 
-    /**
-     * @param args the command line arguments
-     */
     public static void main(String[] args) {
-        // TODO code application logic here
+        Scanner scan = new Scanner(System.in);
+        float imc = 0;
+
+        try {
+
+            System.out.println("=================================================== <[Entrada]> ==================================================");
+            System.out.print("Ingrese el peso (kilogramos): ");
+            float peso = scan.nextFloat();
+
+            System.out.print("Ingrese el peso (metros): ");
+            float altura = scan.nextFloat();
+            altura = altura * altura;
+
+            imc = peso / altura;
+
+            System.out.println("=================================================== <[Calculo]> ==================================================");
+            System.out.println("Su IMC = " + imc);
+            if (imc < 18.5) {
+                System.out.println("Su peso es Bajo");
+            } else if (imc <= 24.9) {
+                System.out.println("Su peso es Normal");
+            } else if (imc <= 29.9) {
+                System.out.println("Sufre de sobrepeso");
+            } else {
+                System.out.println("Sufre de Obecidad");
+            }
+            System.out.println("==================================================================================================================");
+
+        } catch (InputMismatchException e) {
+            System.out.println("=================================================== <[Error]> ====================================================");
+            System.err.println("Error, solo se admiten numeros");
+            System.out.println("==================================================================================================================");
+        }
+
     }
-    
+    /*Bajo peso: IMC < 18.5
+Normal: 18.5 ≤ IMC < 24.9
+Sobrepeso: 25 ≤ IMC < 29.9
+Obesidad: IMC ≥ 30*/
 }
