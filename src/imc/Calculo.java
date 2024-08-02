@@ -41,8 +41,4 @@ public class Calculo {
         }
 
     }
-    /*Bajo peso: IMC < 18.5
-Normal: 18.5 ≤ IMC < 24.9
-Sobrepeso: 25 ≤ IMC < 29.9
-Obesidad: IMC ≥ 30*/
 }
